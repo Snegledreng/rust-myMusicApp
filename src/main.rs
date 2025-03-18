@@ -26,6 +26,7 @@ fn main() {
                 io::stdin().read_line(&mut song_choice);
 
                 if let Ok(song_index) = song_choice.trim().parse::<usize>() {
+                    // Vil gerne have play_song kører på en ny tråd, så jeg kan fortsætte loop imens, for f.eks. at kunne toggle internet
                     play_song(song_index, Arc::clone(&internet));
                 } else {
                     println!("Ugyldigt nummer");
